@@ -1,9 +1,6 @@
 #!/bin/bash
 
-help()
-{
-	echo "Usage: $0 <join|gray> <output file> <input files>"
-}
+PDFSH_NAME=$(echo $0 | awk -F"/" '{print $NF}')
 
 func_pdf_join ()
 {
@@ -19,13 +16,32 @@ func_pdf_gray ()
 	gs -sOutputFile="$1" -sDEVICE=pdfwrite -sColorConversionStrategy=Gray -dProcessColorModel=/DeviceGray -dCompatibilityLevel=1.4 -dNOPAUSE -dBATCH "$2"
 }
 
+func_pdf_version ()
+{
+	echo "###########################"
+	echo "# Script: pdf.sh          #"
+	echo "# Author: Jordi Martori   #"
+	echo "# Version: 1              #"
+	echo "###########################"
+}
+
+help()
+{
+	func_pdf_version
+	echo ""
+	echo "Usage: $PDFSH_NAME <join|gray> <output file> <input files>"
+	echo "       $PDFSH_NAME <help|version>"
+	echo ""
+	echo ""
+}
+
 if [ $# -lt 1 ]; then
 	help
 	exit 1
 fi
 
 case $1 in 
-	"--help")
+	"help")
 		help
 	;;
 	"join")
@@ -35,5 +51,8 @@ case $1 in
 	"gray")
 		shift
 		func_pdf_gray $*	
+	;;
+	"version")
+		func_pdf_version
 	;;
 esac
