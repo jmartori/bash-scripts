@@ -30,7 +30,7 @@ After you should modify and add your Public_Access_key in the config file.
 
 After that you can use pushbullet.sh to send pushes.
 
-> bash pushbullet.sh <email> <title> <body>
+> bash pushbullet.sh \<email\> \<title\> \<body\>
 
 
 <h4> upload2drive.sh </h4>
