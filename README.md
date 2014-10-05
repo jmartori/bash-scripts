@@ -20,6 +20,18 @@ Allows a more amicable interface to modify raspberry's ports. It could be also a
 
 Basic bash interface to the pushbullet rest-API that allows to send pushes throught the CLI.
 
+In order to used it, you should follows the next steps.
+
+> bash pushbullet.sh install
+
+This created the config file in ~/.pushbullet/basic.conf
+
+After you should modify and add your Public_Access_key in the config file.
+
+After that you can use pushbullet.sh to send pushes.
+
+> bash pushbullet.sh <email> <title> <body>
+
 
 <h4> upload2drive.sh </h4>
 
